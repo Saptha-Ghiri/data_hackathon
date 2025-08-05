@@ -1,0 +1,10 @@
+Target Table,Target Column,Target Data Type,Nullable,Key,Source Database,Source Schema,Source Table,Source Column,Source Data Type,Transformation Logic,Default Value
+Fact_Sales,sale_id,INT,N,PK,AUTO_GEN,Source,,,,Auto-generated,
+Fact_Sales,order_id,INT,N,,AUTO_GEN,Source,Orders,order_id,INT,Direct Mapping,
+Fact_Sales,user_id,INT,N,,AUTO_GEN,Source,orders,user_id,INT,Direct Mapping,
+Fact_Sales,product_id,INT,N,,AUTO_GEN,Source,Products,product_id,INT,Direct Mapping,
+Fact_Sales,category_id,INT,N,,AUTO_GEN,Source,Products,category_id,INT,Direct Mapping,
+Fact_Sales,date_id,INT,N,,AUTO_GEN,Source,Orders,created_at,TIMESTAMP,date(created_at)  format yyyymmdd,
+Fact_Sales,payment_id,INT,N,,AUTO_GEN,Source,Payments,payment_id,INT,Direct Mapping,
+Fact_Sales,quantity,INT,Y,,AUTO_GEN,Source,Order_Items,quantity,INT,Direct Mapping,
+Fact_Sales,total_price,"DECIMAL(10,2)",Y,,AUTO_GEN,Source,Order_Items,price,"DECIMAL(10,2)",quantity * price,0
